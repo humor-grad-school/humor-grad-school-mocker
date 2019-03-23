@@ -1,0 +1,33 @@
+{
+  "name": "humor-grad-school-mocker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "watch-build": "tsc -w",
+    "start": "node dist/index.js",
+    "gen-type": "node type-generator/generateAll src/types/generated",
+    "watch-gen-type": "node type-generator/watch src/types/generated"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humor-grad-school/humor-grad-school-mocker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/humor-grad-school/humor-grad-school-mocker/issues"
+  },
+  "homepage": "https://github.com/humor-grad-school/humor-grad-school-mocker#readme",
+  "dependencies": {
+    "form-data": "^2.3.3",
+    "node-fetch": "^2.3.0",
+    "typescript": "^3.3.3333",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^11.10.4"
+  }
+}
