@@ -1,10 +1,11 @@
 import fetch from 'node-fetch';
 import signUp from './signUp';
-import authenticate from './authenticate';
+import authenticate, { makeIdentity } from './authenticate';
 import { HgsRestApi } from './types/generated/client/ClientApis';
 import { humorBoardName } from './globalVariables';
 import createBoard from './createBoard';
 import writePost from './writePost';
+import uuid from 'uuid/v4';
 
 (global as any).fetch = fetch;
 
@@ -12,8 +13,10 @@ async function main() {
   HgsRestApi.setIsDevelopment(true);
   HgsRestApi.setBaseServerUrl('http://localhost:8080');
 
-  const idToken = await signUp();
+  const idToken = uuid();
 
+  await makeIdentity(idToken);
+  await signUp(idToken);
   const sessionToken = await authenticate(idToken);
 
   HgsRestApi.setSessionToken(sessionToken);

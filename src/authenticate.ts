@@ -10,3 +10,12 @@ export default async function authenticate(idToken: string): Promise<string> {
 
   return response.data.sessionToken;
 }
+
+export async function makeIdentity(idToken: string): Promise<void> {
+  await HgsRestApi.authenticate({
+    origin: 'local',
+    authenticationRequestData: {
+      idToken,
+    },
+  });
+}
